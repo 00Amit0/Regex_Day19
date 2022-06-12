@@ -16,6 +16,8 @@ namespace RegexDemo
         public const string MOBILE = "^([9][1])+[ ]+[6789]{1}[0-9]{9}$";      //UC4
         public const string PASSWORD_RULE1 = "^[a-z]{8}";                     //UC5
         public const string PASSWORD_RULE2 = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";                           //UC6
+        public const string PASSWORD_RULE3 = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$";                //UC7
+
         //method to check first name is valid or not
         public void ValidateFName(string fName)
         {
@@ -98,6 +100,21 @@ namespace RegexDemo
             Regex regex = new Regex(PASSWORD_RULE2);
 
             if (regex.IsMatch(psswrd2))
+            {
+                Console.WriteLine("PassWord is matched with pattern");
+            }
+            else
+            {
+                Console.WriteLine("PassWord does not match with pattern");
+            }
+        }
+        //method to check passwrd is valid or not. it should contain at least one uppercase and one number 
+        public void ValidatePassword3(string psswrd3)
+        {
+            //assigning pattern in regex constructor
+            Regex regex = new Regex(PASSWORD_RULE3);
+
+            if (regex.IsMatch(psswrd3))
             {
                 Console.WriteLine("PassWord is matched with pattern");
             }
