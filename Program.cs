@@ -12,9 +12,12 @@
             //Console.WriteLine("Enter valid last name");
             //string lstname = Console.ReadLine();
             //validUserRegistraton.ValidateLName(lstname);
-            Console.WriteLine("Enter valid EmailId");
-            string mail = Console.ReadLine();
-            validUserRegistraton.ValidateEmail(mail);
+            //Console.WriteLine("Enter valid EmailId");
+            //string mail = Console.ReadLine();
+            //validUserRegistraton.ValidateEmail(mail);
+            Console.WriteLine("Enter mobile number");
+            string mnum = Console.ReadLine();
+            validUserRegistraton.ValidateMobile(mnum);
         }
     }
 }
