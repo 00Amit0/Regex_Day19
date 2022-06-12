@@ -14,7 +14,8 @@ namespace RegexDemo
         public const string LAST_NAME = "^[A-Z][a-zA-Z]{2}";                  //UC2
         public const string EMAIL = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}";     //UC3
         public const string MOBILE = "^([9][1])+[ ]+[6789]{1}[0-9]{9}$";      //UC4
-        public const string PASSWORD = "^[a-z]{8}";                           //UC5
+        public const string PASSWORD_RULE1 = "^[a-z]{8}";                     //UC5
+        public const string PASSWORD_RULE2 = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";                           //UC6
         //method to check first name is valid or not
         public void ValidateFName(string fName)
         {
@@ -79,7 +80,7 @@ namespace RegexDemo
         public void ValidatePassword(string psswrd)
         {
             //assigning pattern in regex constructor
-            Regex regex = new Regex(PASSWORD);
+            Regex regex = new Regex(PASSWORD_RULE1);
 
             if (regex.IsMatch(psswrd))
             {
@@ -88,6 +89,21 @@ namespace RegexDemo
             else
             {
                 Console.WriteLine("PassWord Number does not match with pattern");
+            }
+        }
+        //method to check passwrd is valid or not 
+        public void ValidatePassword2(string psswrd2)
+        {
+            //assigning pattern in regex constructor
+            Regex regex = new Regex(PASSWORD_RULE2);
+
+            if (regex.IsMatch(psswrd2))
+            {
+                Console.WriteLine("PassWord is matched with pattern");
+            }
+            else
+            {
+                Console.WriteLine("PassWord does not match with pattern");
             }
         }
     }
